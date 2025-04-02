@@ -30,6 +30,7 @@ A periodic process that is accessing secrets may be transient. This means there 
 
 **Call   1.** [Intention open](https://github.com/bcgov-nr/action-broker-intention-open)
 
+*Action start* is not needed as the *Intention open* can be configured to start a single action intention. 
 ```
 name: Open intention
         uses: bcgov-nr/action-broker-intention-open@v2
@@ -83,6 +84,7 @@ Retrieving secrets should be through GitHub Actions and ***NOT*** Provisioning. 
 
 **Call  4.** [Intention close](https://github.com/bcgov-nr/action-broker-intention-close)
 
+*Action end* is not needed as *Intention close* can automatically end any started actions. 
 ```
  - name: Close intention
         if: ${{ success() && env.INTENTION_TOKEN != '' }}
